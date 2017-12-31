@@ -1,38 +1,14 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "mecaniques.h"
+#include "affichage.h"
+
 #define LONG 12
 #define LARG 18
 #define ROUGE 'R'
 #define BLEU 'B'
 #define SERF 's'
 #define GUERRIER 'g'
-
-typedef struct unite
-{
-  int posX, posY;
-  char couleur;
-  char genre;
-  struct unite *suiv;
-}Unite;
-
-typedef Unite *Uliste;
-
-typedef struct monde
-{
-  Unite *plateau[LONG][LARG];
-  int tour;
-  Uliste rouge, bleu;
-}Monde;
-
-int main ()
-{
-  Monde jeu1;
-  initializerMonde(jeu1);
-
-
-
-
-}
 
 /* fonction initializerMonde */
 void initializerMonde(Monde *monde)
