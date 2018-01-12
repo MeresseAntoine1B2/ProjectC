@@ -22,6 +22,8 @@ typedef struct monde
 
 void initializerMonde(Monde *monde);
 int creerUnite(char type, char couleur, LUnite *unite);
+int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur);
+void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY);
 
 #endif
 	
