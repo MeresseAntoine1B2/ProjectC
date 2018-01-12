@@ -1,18 +1,9 @@
-CC=gcc
-CFLAGS=-W -Wall -ansi -pedantic
-LDFLAGS=
-EXEC=projet
-
-all: $(EXEC)
-
-hello: affichage.o mecaniques.o main.o
-	$(CC) -o $@ $^ $(LDFLAGS)
-
-%.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
-
-clean:
-	rm -rf *.o
-
-mrproper: clean
-	rm -rf $(EXEC)
+all : exec
+exec: main.o affichage.o mecaniques.o
+	gcc main.o affichage.o mecaniques.o
+main.o: main.c affichage.h mecaniques.h
+	gcc -c main.c
+affichage.o: affichage.c
+	gcc -c affichage.c
+mecaniques.o: mecaniques.c
+	gcc -c mecaniques.c
