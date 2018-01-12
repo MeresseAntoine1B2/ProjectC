@@ -13,12 +13,27 @@
 /* fonction initializerMonde */
 void initializerMonde(Monde *monde)
 {
-  monde->Unite==NULL;
-  monde->tour=0;
+	for (int i = 0; i < LONG; i++)
+		for (int j = 0; j < LONG; j++)
+			monde->plateau[i][j] = NULL;
+	monde->rouge = NULL;
+	monde->bleu = NULL;
+	monde->tour=0;
 }
 
 /* fonction creerUnite */
-int creerUnite(char type, LUnite *unite)
+int creerUnite(char type, char couleur, LUnite *unite)
 {
-  /* j'ai pas encore compris faut relire un million de fois */
+	Unite *nouvelle = malloc(sizeof(Unite));
+	if (nouvelle == NULL)
+		return 1; //Erreur de l'allocation
+	nouvelle->couleur = couleur;
+	nouvelle->type = type;
+	unite->nouvelle;
+	return 0;
+}
+
+int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur)
+{
+	
 }

@@ -10,7 +10,7 @@
 #define SERF 's'
 #define GUERRIER 'g'
 
-int main (int ac, char **av)
+int main ()
 {
-	
+	Monde monde;
 }
