@@ -38,11 +38,11 @@ int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur)
 
 }
 
-int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
+void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 {
 	if (unite->posX != posX || unite->posY != posY)
 	{
-		if ((unite->posX - destX) <= 1 && (unite->posX - destX) >= -1 && (unite->posY - destY) <= 1 && (unite->posY - destY) >= -1 )
+		if ((unite->posX - destX) <= -1 && (unite->posX - destX) >= 1 && (unite->posY - destY) <= -1 && (unite->posY - destY) >= 1 )
 		{
 			unite->posX = destX;
 			unite->posY = destY;
