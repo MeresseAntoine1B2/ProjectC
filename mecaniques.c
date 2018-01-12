@@ -21,7 +21,7 @@ void initializerMonde(Monde *monde)
 	monde->tour=0;
 }
 
-/* fonction creerUnite */
+/* fonction creerUnite 
 int creerUnite(char type, char couleur, LUnite *unite)
 {
 	Unite *nouvelle = malloc(sizeof(Unite));
@@ -32,6 +32,7 @@ int creerUnite(char type, char couleur, LUnite *unite)
 	unite->nouvelle;
 	return 0;
 }
+*/
 
 int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur)
 {
@@ -40,13 +41,12 @@ int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur)
 
 void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 {
-	if (unite->posX != posX || unite->posY != posY)
+	if (unite->posX != destX || unite->posY != destY)
 	{
 		if ((unite->posX - destX) <= -1 && (unite->posX - destX) >= 1 && (unite->posY - destY) <= -1 && (unite->posY - destY) >= 1 )
 		{
 			unite->posX = destX;
 			unite->posY = destY;
-			return 0;
 		}
 	}
 }

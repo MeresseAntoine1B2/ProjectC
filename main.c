@@ -3,16 +3,12 @@
 #include "mecaniques.h"
 #include "affichage.h"
 
-#define LONG 12
-#define LARG 18
-#define ROUGE 'R'
-#define BLEU 'B'
-#define SERF 's'
-#define GUERRIER 'g'
-
 int main ()
 {
+	printf("test 0");
 	Monde monde;
+	printf("test 1");
 	initializerMonde(&monde);
-	printWorld(Unite monde.plateau);
+	printf("test 2");
+	printWorld(monde.plateau);
 }

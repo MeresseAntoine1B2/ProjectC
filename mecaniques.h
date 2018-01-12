@@ -1,11 +1,18 @@
 #ifndef H_MECA
 #define H_MECA
 
+#define LONG 12
+#define LARG 18
+#define ROUGE 'R'
+#define BLEU 'B'
+#define SERF 's'
+#define GUERRIER 'g'
+
 typedef struct unite
 {
   int posX, posY;
   char couleur;
-  char genre;
+  char type;
   struct unite *suiv;
 }Unite;
 
