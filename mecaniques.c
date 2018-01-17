@@ -14,14 +14,15 @@
 void initializerMonde(Monde *monde)
 {
 	for (int i = 0; i < LONG; i++)
-		for (int j = 0; j < LONG; j++)
+		for (int j = 0; j < LARG; j++)
 			monde->plateau[i][j] = NULL;
 	monde->rouge = NULL;
 	monde->bleu = NULL;
 	monde->tour=0;
 }
 
-/* fonction creerUnite 
+/* fonction creerUnite */
+
 int creerUnite(char type, char couleur, LUnite *unite)
 {
 	Unite *nouvelle = malloc(sizeof(Unite));
@@ -29,15 +30,22 @@ int creerUnite(char type, char couleur, LUnite *unite)
 		return 1; //Erreur de l'allocation
 	nouvelle->couleur = couleur;
 	nouvelle->type = type;
-	unite->nouvelle;
+	unite->nouvelle; /*** je crois que ça devrais être unite = nouvelle ***/
 	return 0;
 }
-*/
 
+/*
 int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur)
 {
+	if (monde->plateau[posX][posY] != NULL)
+	{
+		return 1; /* case non vide on ne peut pas placer l'unité ici */
+	}
+	unite->posX = posX;
+	unite->posY = posY;
+	unite->couleur = couleur;
 
-}
+}*/
 
 void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 {
