@@ -21,21 +21,60 @@ void initializerMonde(Monde *monde)
 	monde->tour=0;
 }
 
-/* fonction creerUnite */
+/* Fonctions de gestion des listes chainées */
+
+/* fonction creerUnite 
 
 int creerUnite(char type, char couleur, LUnite *unite)
 {
+	// Création d'une unité
 	Unite *nouvelle = malloc(sizeof(Unite));
 	if (nouvelle == NULL)
 		return 1; //Erreur de l'allocation
+	
+	// On assigne les valeurs
 	nouvelle->couleur = couleur;
 	nouvelle->type = type;
-	unite->nouvelle; /*** je crois que ça devrais être unite = nouvelle ***/
+	nouvelle->suiv = NULL;
+
+	if(unite == NULL)
+		unite = &nouvelle;
+	else
+	{
+		LUnite tmp = unite;
+		while(tmp->suiv != NULL)
+			tmp = tmp->suiv;
+		tmp->suiv = &nouvelle;
+	}
 	return 0;
+}*/
+
+LUnite creerUnite(char type, char couleur, LUnite liste)
+{
+	// Création d'une unité
+	Unite *nouvelle = malloc(sizeof(Unite));
+	if (nouvelle == NULL)
+		exit(EXIT_FAILURE); //Erreur de l'allocation
+	
+	// On assigne les valeurs
+	nouvelle->couleur = couleur;
+	nouvelle->type = type;
+	nouvelle->suiv = NULL;
+
+	if (liste == NULL)
+		return nouvelle;
+	else
+	{
+		Unite *tmp = liste;
+		while (tmp->suiv != NULL)
+			tmp = tmp->suiv;
+		tmp->suiv=nouvelle;
+		return liste;
+	}
 }
 
-/*
-int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur)
+
+int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY)
 {
 	if (monde->plateau[posX][posY] != NULL)
 	{
@@ -43,9 +82,9 @@ int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur)
 	}
 	unite->posX = posX;
 	unite->posY = posY;
-	unite->couleur = couleur;
-
-}*/
+	monde->plateau[posX][posY]=unite;
+	return 0;
+}
 
 void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 {

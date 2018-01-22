@@ -28,24 +28,21 @@ void printWorld(Unite *plateau[LONG][LARG])
 	}
 }
 
-/* j'ai gcc affichage.c seulement afin de tester l'affichage du Plateau 
-
-void initializerMonde(Monde *monde)
+void AskPosition(Monde *monde, LUnite liste)
 {
-	for (int i = 0; i < LONG; i++)
-		for (int j = 0; j < LARG; j++)
-			monde->plateau[i][j] = NULL;
-	monde->rouge = NULL;
-	monde->bleu = NULL;
-	monde->tour=0;
-} 
-
-int main ()
-{
-	printf("--------------\n");
-	Monde monde;
-	printf("test 1\n");
-	initializerMonde(&monde);
-	printf("test 2\n");
-	printWorld(monde.plateau);
-}*/
+	int x, y;
+	Unite *tmp = liste;
+	while (tmp != NULL)
+	{
+		do
+		{
+			printf("Où souhaitez vous placer le %c %c ?\n", tmp->type, tmp->couleur);
+			printf("Entrez la coordonnée X (entre 0 et %d)\n", LONG);
+			scanf("%d", &x);
+			printf("Entrez la coordonnée Y (entre 0 et %d)\n", LARG);
+			scanf("%d", &y);
+		} while ((x > LONG || x < 0) && (y > LARG || y < 0) && monde->plateau[x][y] != NULL);
+		placerAuMonde(tmp, monde, x, y);
+		tmp = tmp->suiv;
+	}
+}

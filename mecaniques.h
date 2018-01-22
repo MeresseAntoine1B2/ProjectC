@@ -28,8 +28,8 @@ typedef struct monde
 // Mettre les prototypes des fonctions ci-dessous
 
 void initializerMonde(Monde *monde);
-int creerUnite(char type, char couleur, LUnite *unite);
-int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY, char couleur);
+LUnite creerUnite(char type, char couleur, LUnite liste);
+int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY);
 void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY);
 
 #endif
