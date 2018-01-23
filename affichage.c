@@ -13,18 +13,18 @@
 
 void printWorld(Unite *plateau[LONG][LARG])
 {
-	printf("-------------------------------------------------------------------------\n");
+	printf("------------------------------------------------------------------------------------------\n");
 	for (int i = 0; i < 12; i++)
 	{
 		for (int j = 0; j < 18; j++)
 		{
 			if (plateau[i][j] == NULL)
-				printf("|   ");
+				printf("|   |");
 			else
 				printf("|%c %c|", plateau[i][j]->couleur, plateau[i][j]->type);
 		}
-		printf("|\n");
-		printf("-------------------------------------------------------------------------\n");
+		printf("\n");
+		printf("------------------------------------------------------------------------------------------\n");
 	}
 }
 
@@ -41,7 +41,7 @@ void AskPosition(Monde *monde, LUnite liste)
 			scanf("%d", &x);
 			printf("Entrez la coordonnée Y (entre 0 et %d)\n", LARG);
 			scanf("%d", &y);
-		} while ((x > LONG || x < 0) && (y > LARG || y < 0) && monde->plateau[x][y] != NULL);
+		} while ((x > LONG || x < 0) && (y > LARG || y < 0) && (monde->plateau[x][y] != NULL));
 		placerAuMonde(tmp, monde, x, y);
 		tmp = tmp->suiv;
 	}
