@@ -20,7 +20,7 @@ int main ()
 
 	//Debut du jeu
 	LUnite tourJoueur;
-	while(monde.rouge != NULL || monde.bleu!=NULL)
+	while(monde.rouge != NULL && monde.bleu!=NULL)
 	{
 		tourJoueur = monde.rouge;
 		printf("C'est le tour des rouges !! \n");
@@ -35,6 +35,13 @@ int main ()
 			printWorld(monde.plateau);
 			tourJoueur = tourJoueur->suiv;
 		}
+		if (monde.rouge == NULL)
+		{
+			monde.tour++;
+			break;
+		}
+
+
 		tourJoueur = monde.bleu;
 		printf("C'est le tour des bleus !! \n");
 		while (tourJoueur != NULL)
@@ -50,4 +57,9 @@ int main ()
 		}
 		monde.tour++;
 	}
+	printf("GAME OVER !\n");
+	if (monde.rouge == NULL)
+		printf("Victoire des BLEUS en %d tours !\n", monde.tour);
+	else
+		printf("Victoire des ROUGES en %d tours !\n", monde.tour);
 }

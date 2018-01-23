@@ -122,13 +122,31 @@ void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 			if(monde->plateau[destX][destY] != NULL)
 			{
 				if (monde->plateau[destX][destY]->couleur != unite->couleur)
-				{					
-					attaquer(monde, monde->plateau[destX][destY]->couleur, destX, destY);
-					monde->plateau[destX][destY] = monde->plateau[unite->posX][unite->posY];
-					monde->plateau[unite->posX][unite->posY] = NULL;
-					unite->posX = destX;
-					unite->posY = destY;
-					printf("Unité déplacée!\n");
+				{
+					if (monde->plateau[destX][destY]->type == unite->type)
+					{
+						attaquer(monde, monde->plateau[destX][destY]->couleur, destX, destY);
+						monde->plateau[destX][destY] = monde->plateau[unite->posX][unite->posY];
+						monde->plateau[unite->posX][unite->posY] = NULL;
+						unite->posX = destX;
+						unite->posY = destY;
+						printf("Unité déplacée!\n");
+					}
+					else if (unite->type == GUERRIER)
+					{
+						attaquer(monde, monde->plateau[destX][destY]->couleur, destX, destY);
+						monde->plateau[destX][destY] = monde->plateau[unite->posX][unite->posY];
+						monde->plateau[unite->posX][unite->posY] = NULL;
+						unite->posX = destX;
+						unite->posY = destY;
+						printf("Unité déplacée!\n");
+					}
+					else
+					{
+						monde->plateau[unite->posX][unite->posY] = NULL;
+						attaquer(monde, unite->couleur, unite->posX, unite->posY);
+						printf("Confrontation perdue !!!\n");
+					}
 				}
 				else
 					printf("le tir ami n'est pas toléré camarade, tu perds ton tour !\n");
