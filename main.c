@@ -6,7 +6,7 @@
 
 int main ()
 {
-	/*int x,y;*/
+	int x,y;
 	Monde monde;
 
 	//Initialisation du monde
@@ -27,6 +27,27 @@ int main ()
 	MLV_draw_image(image,0,0);
 	MLV_actualise_window();
  	grille(width, height);
+
+	LUnite chaine = monde.rouge;
+	while(chaine != NULL)
+	{
+		do
+		{
+			coordonnee(&x, &y);
+		} while (monde.plateau[x][y] != NULL);
+		placerAuMonde(chaine, &monde, x, int y);
+		chaine = chaine->suiv;
+	}
+	LUnite chaine = monde.bleu;
+	while(chaine != NULL)
+	{
+		do
+		{
+			coordonnee(&x, &y);
+		} while (monde.plateau[x][y] != NULL);
+		placerAuMonde(chaine, &monde, x, int y);
+		chaine = chaine->suiv;
+	}
 	MLV_wait_seconds(10);
 
 }
