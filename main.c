@@ -35,7 +35,7 @@ int main ()
 		{
 			coordonnee(&x, &y);
 		} while (monde.plateau[x][y] != NULL);
-		placerAuMonde(chaine, &monde, x, int y);
+		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
 	}
 	LUnite chaine = monde.bleu;
@@ -45,7 +45,7 @@ int main ()
 		{
 			coordonnee(&x, &y);
 		} while (monde.plateau[x][y] != NULL);
-		placerAuMonde(chaine, &monde, x, int y);
+		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
 	}
 	MLV_wait_seconds(10);
