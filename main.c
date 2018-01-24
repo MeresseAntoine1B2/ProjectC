@@ -28,4 +28,5 @@ int main ()
 	MLV_actualise_window();
  	grille(width, height);
 	MLV_wait_seconds(10);
+
 }
