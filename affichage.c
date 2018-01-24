@@ -68,17 +68,3 @@ void coordonnee( int *x, int *y)
 		*y=mouseX/60;
 		*x=mouseY/60;
 }
-
-char *texteFormateMLV(LUnite unite)
-{
-	char str[] = "Cliquez pour placer le ";
-	if (unite.type = GUERRIER)
-		strcat(str, "guerrier ");
-	else
-		strcat(str, "serf ");
-	if (unite.type = ROUGE)
-		strcat(str, "rouge !");
-	else
-		strcat(str, "bleu !");
-	return str;
-}

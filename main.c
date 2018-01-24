@@ -32,7 +32,10 @@ int main ()
 	LUnite chaine = monde.rouge;
 	while(chaine != NULL)
 	{
-		MLV_draw_adapted_text_box(400,760,"Placez le bonhomme rouge !",taille_interlinge,MLV_COLOR_RED, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+		if (chaine->type == GUERRIER)
+			MLV_draw_adapted_text_box(400,760,"Placez le guerrier rouge !" ,taille_interlinge,MLV_COLOR_RED, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+		else
+			MLV_draw_adapted_text_box(400,760,"Placez le serf rouge !" ,taille_interlinge,MLV_COLOR_RED, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 		MLV_actualise_window();
 		do
 		{
@@ -46,7 +49,10 @@ int main ()
 	chaine = monde.bleu;
 	while(chaine != NULL)
 	{
-		MLV_draw_adapted_text_box(400,760,"Placez le bonhomme bleu !",taille_interlinge,MLV_COLOR_BLUE, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+		if (chaine->type == GUERRIER)
+			MLV_draw_adapted_text_box(400,760,"Placez le guerrier bleu !" ,taille_interlinge,MLV_COLOR_BLUE, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+		else
+			MLV_draw_adapted_text_box(400,760,"Placez le serf bleu !" ,taille_interlinge,MLV_COLOR_BLUE, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 		MLV_actualise_window();
 		do
 		{
