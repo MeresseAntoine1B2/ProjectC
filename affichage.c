@@ -77,13 +77,49 @@ int fpix(int x)
 {
 	return (x*60);
 }
-/*void afficheIcone(Monde monde,int x, int y)
+void afficheIcone(Monde monde)
 {
-	for (i=0;i<)
-		if (monde.plateau[x][y].couleur == B)
+	MLV_Image *imageGB;
+	MLV_Image *imageGR;
+ 	MLV_Image *imageSB;
+  	MLV_Image *imageSR;
+  	imageGB = MLV_load_image("guerrierBleu.png");
+	imageGR = MLV_load_image("guerrierRouge.png");
+ 	imageSB = MLV_load_image("serfBleu.png");
+  	imageSR = MLV_load_image("serfRouge.png");
+  	MLV_resize_image_with_proportions(imageGB,60,60);
+	MLV_resize_image_with_proportions(imageGR,60,60);
+  	MLV_resize_image_with_proportions(imageSB,60,60);
+  	MLV_resize_image_with_proportions(imageSR,60,60);
+	for (int i = 0; i < 12; i++)
+	{
+		for (int j = 0; j < 18; j++)
 		{
-			MLV_draw_image(imageGB,x,y);
-			MLV_actualise_window();
+			if (monde.plateau[i][j] != NULL)
+				if (monde.plateau[i][j]->couleur == BLEU)
+					if (monde.plateau[i][j]->type == GUERRIER)
+					{
+						printf("----------wesh GB ?------------\n");
+						MLV_draw_image(imageGB,fpix(i),fpix(j));
+						MLV_actualise_window();
+					}
+					else if (monde.plateau[i][j]->type == SERF)
+					{
+						MLV_draw_image(imageSB,i,j);
+						MLV_actualise_window();
+					}
+				else if (monde.plateau[i][j]->couleur == ROUGE)
+					if (monde.plateau[i][j]->type == GUERRIER)
+					{
+						MLV_draw_image(imageGR,i,j);
+						MLV_actualise_window();
+					}
+					else if (monde.plateau[i][j]->type == SERF)
+					{
+						MLV_draw_image(imageSR,i,j);
+						MLV_actualise_window();
+					}
 
 		}
-}*/
+	}
+}

@@ -40,9 +40,6 @@ int main ()
 	MLV_draw_image(image,0,0);
 	MLV_actualise_window();
  	grille(width, height);
- 	coordonnee(&x, &y);
-	MLV_draw_image(imageGB,fpix(y),fpix(x));
-	MLV_actualise_window();
 	
 	
 	LUnite chaine = monde.rouge;
@@ -52,10 +49,12 @@ int main ()
 		MLV_actualise_window();
 		do
 		{
-			
+			coordonnee(&x, &y);
 		} while (monde.plateau[x][y] != NULL);
 		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
+		afficheIcone(monde);
+		MLV_actualise_window();
 		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
 		MLV_actualise_window();
 	}
