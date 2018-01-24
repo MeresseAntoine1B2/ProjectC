@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mecaniques.h"
+#include "string.h"
 #include<MLV/MLV_all.h>
 
 #define LONG 12
