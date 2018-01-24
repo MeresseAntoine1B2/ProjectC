@@ -4,6 +4,6 @@
 // Mettre les prototypes des fonctions ci-dessous
 void printWorld(Unite ***plateau);
 void AskPosition(Monde *monde, LUnite liste);
-void grille();
+void grille(int width, int height);
 #endif
 	

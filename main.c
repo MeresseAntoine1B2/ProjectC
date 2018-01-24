@@ -27,5 +27,5 @@ int main ()
 	MLV_draw_image(image,0,0);
 	MLV_actualise_window();
 	MLV_wait_seconds(10);
- 
+ 	grille(width, height);
 }

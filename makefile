@@ -16,7 +16,7 @@ CC = gcc
 # CFLAGS = -Wall -g
 # LDFLAGS = 
 # Décommenter ces deux lignes pour l'interface graphique MLV
-CFLAGS = -Wall -g -D GRAPHIQUE=1 `pkg-config --cflags MLV`
+CFLAGS = -std=c99 -Wall -g -D GRAPHIQUE=1 `pkg-config --cflags MLV`
 LDFLAGS = `pkg-config --libs-only-l MLV`
  
 SRC = $(wildcard */*.c) $(wildcard *.c)
