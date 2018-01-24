@@ -6,7 +6,7 @@
 
 int main ()
 {
-	int x,y;
+	/*int x,y;*/
 	Monde monde;
 
 	//Initialisation du monde
@@ -26,5 +26,6 @@ int main ()
 	  MLV_resize_image_with_proportions(image,width,height);
 	  MLV_draw_image(image,0,0);
 	  MLV_actualise_window();
+	   MLV_wait_seconds(10);
  
 }
