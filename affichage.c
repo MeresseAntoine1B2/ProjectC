@@ -67,3 +67,23 @@ void coordonnee( int *x, int *y)
 		*y=mouseX/60;
 		*x=mouseY/60;
 }
+
+int f(int x)
+{
+	return (x/60)*60;
+}
+
+int fpix(int x)
+{
+	return (x*60);
+}
+/*void afficheIcone(Monde monde,int x, int y)
+{
+	for (i=0;i<)
+		if (monde.plateau[x][y].couleur == B)
+		{
+			MLV_draw_image(imageGB,x,y);
+			MLV_actualise_window();
+
+		}
+}*/
