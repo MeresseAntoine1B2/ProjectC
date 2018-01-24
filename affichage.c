@@ -60,3 +60,10 @@ void grille(int width, int height)
 	MLV_actualise_window();
 }
 
+void coordonnee( int *x, int *y)
+{
+	int mouseX, mouseY;
+	MLV_wait_mouse(&mouseX, &mouseY);
+		*x=mouseX/60;
+		*y=mouseY/60;
+}

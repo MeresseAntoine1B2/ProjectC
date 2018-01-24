@@ -21,11 +21,12 @@ int main ()
 	MLV_Image *image;
 	int width = 1080;
 	int height = 720;
-	MLV_create_window("fenetre","icone fenetre",width,height);
+	MLV_create_window("fenetre","icone fenetre",width,height+200);
 	image = MLV_load_image("pirate.jpg");
 	MLV_resize_image_with_proportions(image,width,height);
 	MLV_draw_image(image,0,0);
 	MLV_actualise_window();
  	grille(width, height);
 	MLV_wait_seconds(10);
+
 }
