@@ -103,7 +103,7 @@ LUnite supprDansChaine(LUnite liste, int x, int y)
 	Unite *tmp = liste;
 	Unite *precedTmp = liste;
 
-	while(tmp->suiv->posX != x && tmp->suiv->posY != y && tmp->suiv != NULL)
+	while(tmp->posX != x && tmp->posY != y && tmp->suiv != NULL)
 	{
 		precedTmp = tmp;
 		tmp = tmp->suiv;
@@ -115,15 +115,15 @@ LUnite supprDansChaine(LUnite liste, int x, int y)
 
 int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 {
-	if (unite->posX != destX || unite->posY != destY)
+	if (unite->posX != destX || unite->posY != destY) //Test bouge
 	{
-		if ((unite->posX - destX) <= 1 && (unite->posX - destX) >= -1 && (unite->posY - destY) <= 1 && (unite->posY - destY) >= -1 )
+		if ((unite->posX - destX) <= 1 && (unite->posX - destX) >= -1 && (unite->posY - destY) <= 1 && (unite->posY - destY) >= -1 ) //test case adjacente
 		{
-			if(monde->plateau[destX][destY] != NULL)
+			if(monde->plateau[destX][destY] != NULL) //test si case non vide
 			{
-				if (monde->plateau[destX][destY]->couleur != unite->couleur)
+				if (monde->plateau[destX][destY]->couleur != unite->couleur) //test couleur
 				{
-					if (monde->plateau[destX][destY]->type == unite->type)
+					if (monde->plateau[destX][destY]->type == unite->type) //test type
 					{
 						attaquer(monde, monde->plateau[destX][destY]->couleur, destX, destY);
 						monde->plateau[destX][destY] = monde->plateau[unite->posX][unite->posY];
@@ -148,10 +148,10 @@ int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 						return 0;
 					}
 				}
-				else
+				else //tir ami
 					return 1;
 			}
-			else
+			else //case vide
 			{
 				monde->plateau[destX][destY] = monde->plateau[unite->posX][unite->posY];
 				monde->plateau[unite->posX][unite->posY] = NULL;
@@ -160,10 +160,10 @@ int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 				return 0;
 			}
 		}
-		else
+		else //trop loin
 			return 2;
 	}
-	else
+	else //Passe son tour 
 		return 0;
 }
 
