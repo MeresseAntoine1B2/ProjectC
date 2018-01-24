@@ -54,8 +54,9 @@ void grille(int width, int height)
     	{
     		for(j=0;j<height;j=j+60)
       		{
-      			MLV_draw_rectangle(i,j,60,60,MLV_COLOR_YELLOW1);
+      			MLV_draw_rectangle(i,j,60,60,MLV_COLOR_RED1);
      		}
-    }
+    	}
+	MLV_actualise_window();
 }
 
