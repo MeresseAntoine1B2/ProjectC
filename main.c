@@ -38,7 +38,7 @@ int main ()
 		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
 	}
-	LUnite chaine = monde.bleu;
+	chaine = monde.bleu;
 	while(chaine != NULL)
 	{
 		do
