@@ -95,8 +95,13 @@ int main ()
 			} while (deplacerUnite(chaine, &monde, x, y) != 0);
 			afficheIcone(monde);
 			chaine=chaine->suiv;
+			if (monde.rouge == NULL || monde.bleu == NULL)
+			{
+				monde.tour++;
+				break;
+			}
 		}
-		if (monde.rouge == NULL)
+		if (monde.rouge == NULL || monde.bleu == NULL)
 		{
 			monde.tour++;
 			break;
@@ -114,8 +119,26 @@ int main ()
 			} while (deplacerUnite(chaine, &monde, x, y) != 0);
 			afficheIcone(monde);
 			chaine=chaine->suiv;
+			if (monde.rouge == NULL || monde.bleu == NULL)
+			{
+				monde.tour++;
+				break;
+			}
 		}
+	monde.tour++;
 	}
+
+	if (monde.rouge == NULL)
+	{
+		MLV_draw_filled_rectangle(0,0,width,height,MLV_COLOR_BLACK);
+		MLV_draw_adapted_text_box(width/2,height/2,"VICTOIRE BLEUE" ,taille_interlinge,MLV_COLOR_BLUE, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+	}
+	else
+	{
+		MLV_draw_filled_rectangle(0,0,width,height,MLV_COLOR_BLACK);
+		MLV_draw_adapted_text_box(width/2,height/2,"VICTOIRE ROUGE" ,taille_interlinge,MLV_COLOR_RED, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+	}
+	MLV_actualise_window();
 
 	MLV_wait_seconds(10);
 
