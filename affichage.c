@@ -92,12 +92,14 @@ void afficheIcone(Monde monde)
 	MLV_resize_image_with_proportions(imageGR,60,60);
   	MLV_resize_image_with_proportions(imageSB,60,60);
   	MLV_resize_image_with_proportions(imageSR,60,60);
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < LONG; i++)
 	{
-		for (int j = 0; j < 18; j++)
+		for (int j = 0; j < LARG; j++)
 		{
 			if (monde.plateau[i][j] != NULL)
+			{
 				if (monde.plateau[i][j]->couleur == BLEU)
+				{
 					if (monde.plateau[i][j]->type == GUERRIER)
 					{
 						printf("----------wesh GB ?------------\n");
@@ -109,7 +111,9 @@ void afficheIcone(Monde monde)
 						MLV_draw_image(imageSB,i,j);
 						MLV_actualise_window();
 					}
+				}
 				else if (monde.plateau[i][j]->couleur == ROUGE)
+				{
 					if (monde.plateau[i][j]->type == GUERRIER)
 					{
 						MLV_draw_image(imageGR,i,j);
@@ -120,7 +124,8 @@ void afficheIcone(Monde monde)
 						MLV_draw_image(imageSR,i,j);
 						MLV_actualise_window();
 					}
-
+				}
+			}
 		}
 	}
 }
