@@ -5,5 +5,8 @@
 void printWorld(Unite ***plateau);
 void AskPosition(Monde *monde, LUnite liste);
 void grille(int width, int height);
+void coordonnee( int *x, int *y);
+int f(int x);
+int fpix(int x);
 #endif
 	

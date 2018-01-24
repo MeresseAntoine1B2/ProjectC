@@ -20,14 +20,27 @@ int main ()
 
 	//Debut du jeu
 	MLV_Image *image;
+	MLV_Image *imageGB;
+	MLV_Image *imageGR;
+ 	MLV_Image *imageSB;
+  	MLV_Image *imageSR;
 	int width = 1080;
 	int height = 720;
 	MLV_create_window("fenetre","icone fenetre",width,height+200);
 	image = MLV_load_image("pirate.jpg");
+	imageGB = MLV_load_image("guerrierBleu.png");
+	imageGR = MLV_load_image("guerrierRouge.png");
+ 	imageSB = MLV_load_image("serfBleu.png");
+  	imageSR = MLV_load_image("serfRouge.png");
 	MLV_resize_image_with_proportions(image,width,height);
+	MLV_resize_image_with_proportions(imageGB,60,60);
+	MLV_resize_image_with_proportions(imageGR,60,60);
+  	MLV_resize_image_with_proportions(imageSB,60,60);
+  	MLV_resize_image_with_proportions(imageSR,60,60);
 	MLV_draw_image(image,0,0);
 	MLV_actualise_window();
  	grille(width, height);
+	
 	
 	LUnite chaine = monde.rouge;
 	while(chaine != NULL)
@@ -43,6 +56,8 @@ int main ()
 		} while (monde.plateau[x][y] != NULL);
 		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
+		afficheIcone(monde);
+		MLV_actualise_window();
 		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
 		MLV_actualise_window();
 	}
