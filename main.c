@@ -8,6 +8,7 @@ int main ()
 {
 	int x,y;
 	Monde monde;
+	int taille_interlinge = 9;
 
 	//Initialisation du monde
 	initializerMonde(&monde);
@@ -27,10 +28,12 @@ int main ()
 	MLV_draw_image(image,0,0);
 	MLV_actualise_window();
  	grille(width, height);
-
+	
 	LUnite chaine = monde.rouge;
 	while(chaine != NULL)
 	{
+		MLV_draw_adapted_text_box(400,760,"Placez le bonhomme rouge !",taille_interlinge,MLV_COLOR_RED, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+		MLV_actualise_window();
 		do
 		{
 			coordonnee(&x, &y);
@@ -41,6 +44,8 @@ int main ()
 	chaine = monde.bleu;
 	while(chaine != NULL)
 	{
+		MLV_draw_adapted_text_box(400,760,"Placez le bonhomme bleu !",taille_interlinge,MLV_COLOR_BLUE, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+		MLV_actualise_window();
 		do
 		{
 			coordonnee(&x, &y);
