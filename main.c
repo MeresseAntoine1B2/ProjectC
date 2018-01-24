@@ -43,8 +43,8 @@ int main ()
 	MLV_actualise_window();
  	grille(width, height);
 	
-	
-	LUnite chaine = monde.rouge;
+	//phase de placement
+	LUnite chaine = monde.rouge; 
 	while(chaine != NULL)
 	{
 		if (chaine->type == GUERRIER)
@@ -80,7 +80,7 @@ int main ()
 		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
 		MLV_actualise_window();
 	}
-	
+	//Debut du jeu
 	while(monde.rouge != NULL && monde.bleu!=NULL)
 	{
 		chaine=monde.rouge;
@@ -127,7 +127,7 @@ int main ()
 		}
 	monde.tour++;
 	}
-
+	//fin jeu
 	if (monde.rouge == NULL)
 	{
 		MLV_draw_filled_rectangle(0,0,width,(height+200),MLV_COLOR_BLACK);

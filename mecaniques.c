@@ -103,12 +103,12 @@ LUnite supprDansChaine(LUnite liste, int x, int y)
 	Unite *tmp = liste;
 	Unite *precedTmp = liste;
 
-	while(tmp->posX != x && tmp->posY != y && tmp->suiv != NULL)
+	while(tmp->posX != x && tmp->posY != y && tmp->suiv != NULL) //test si tmp est le maillon à supprimer
 	{
 		precedTmp = tmp;
 		tmp = tmp->suiv;
 	}
-	precedTmp->suiv = tmp->suiv;
+	precedTmp->suiv = tmp->suiv; //Changement du pointeur du maillon précédent pour le faire pointer vers le suivant
 	free(tmp);
 	return liste;
 }
@@ -123,7 +123,7 @@ int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 			{
 				if (monde->plateau[destX][destY]->couleur != unite->couleur) //test couleur
 				{
-					if (monde->plateau[destX][destY]->type == unite->type) //test type
+					if (monde->plateau[destX][destY]->type == unite->type || unite->type == GUERRIER) //test type
 					{
 						attaquer(monde, monde->plateau[destX][destY]->couleur, destX, destY);
 						monde->plateau[destX][destY] = monde->plateau[unite->posX][unite->posY];
@@ -132,19 +132,10 @@ int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 						unite->posY = destY;
 						return 0;
 					}
-					else if (unite->type == GUERRIER)
+					else //confrontation perdue
 					{
-						attaquer(monde, monde->plateau[destX][destY]->couleur, destX, destY);
-						monde->plateau[destX][destY] = monde->plateau[unite->posX][unite->posY];
-						monde->plateau[unite->posX][unite->posY] = NULL;
-						unite->posX = destX;
-						unite->posY = destY;
-						return 0;
-					}
-					else
-					{
-						monde->plateau[unite->posX][unite->posY] = NULL;
 						attaquer(monde, unite->couleur, unite->posX, unite->posY);
+						monde->plateau[unite->posX][unite->posY] = NULL;
 						return 0;
 					}
 				}
