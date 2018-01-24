@@ -40,6 +40,8 @@ int main ()
 		} while (monde.plateau[x][y] != NULL);
 		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
+		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
+		MLV_actualise_window();
 	}
 	chaine = monde.bleu;
 	while(chaine != NULL)
@@ -52,6 +54,8 @@ int main ()
 		} while (monde.plateau[x][y] != NULL);
 		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
+		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
+		MLV_actualise_window();
 	}
 	MLV_wait_seconds(10);
 
