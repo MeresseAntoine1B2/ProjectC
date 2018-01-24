@@ -30,7 +30,7 @@ typedef struct monde
 void initializerMonde(Monde *monde);
 LUnite creerUnite(char type, char couleur, LUnite liste);
 int placerAuMonde(Unite *unite, Monde *monde, int posX, int posY);
-void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY);
+int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY);
 void attaquer(Monde *monde, char c, int destX, int destY);
 LUnite supprDebutChaine(LUnite liste);
 LUnite supprDansChaine(LUnite liste, int x, int y);

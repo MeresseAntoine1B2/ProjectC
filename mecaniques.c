@@ -113,7 +113,7 @@ LUnite supprDansChaine(LUnite liste, int x, int y)
 	return liste;
 }
 
-void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
+int deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 {
 	if (unite->posX != destX || unite->posY != destY)
 	{
@@ -130,7 +130,7 @@ void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 						monde->plateau[unite->posX][unite->posY] = NULL;
 						unite->posX = destX;
 						unite->posY = destY;
-						printf("Unité déplacée!\n");
+						return 0;
 					}
 					else if (unite->type == GUERRIER)
 					{
@@ -139,17 +139,17 @@ void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 						monde->plateau[unite->posX][unite->posY] = NULL;
 						unite->posX = destX;
 						unite->posY = destY;
-						printf("Unité déplacée!\n");
+						return 0;
 					}
 					else
 					{
 						monde->plateau[unite->posX][unite->posY] = NULL;
 						attaquer(monde, unite->couleur, unite->posX, unite->posY);
-						printf("Confrontation perdue !!!\n");
+						return 0;
 					}
 				}
 				else
-					printf("le tir ami n'est pas toléré camarade, tu perds ton tour !\n");
+					return 1;
 			}
 			else
 			{
@@ -157,13 +157,13 @@ void deplacerUnite(Unite *unite, Monde *monde, int destX, int destY)
 				monde->plateau[unite->posX][unite->posY] = NULL;
 				unite->posX = destX;
 				unite->posY = destY;
-				printf("Unité déplacée!\n");
+				return 0;
 			}
 		}
 		else
-			printf("Si les devs étaient gentils, ils te laisseraient retenter car ton placement est invalide a l'aide d'une petite boucle. Mais les devs sont méchants. \n");
+			return 2;
 	}
 	else
-		printf("Tu ne veux pas bouger ? Tant pis pour toi !\n");
+		return 0;
 }
 

@@ -14,7 +14,9 @@ int main ()
 	initializerMonde(&monde);
 	monde.rouge = creerUnite(GUERRIER, ROUGE, monde.rouge);
 	monde.rouge = creerUnite(SERF, ROUGE, monde.rouge);
+	monde.rouge = creerUnite(SERF, ROUGE, monde.rouge);
 	monde.bleu = creerUnite(GUERRIER, BLEU, monde.bleu);
+	monde.bleu = creerUnite(SERF, BLEU, monde.bleu);
 	monde.bleu = creerUnite(SERF, BLEU, monde.bleu);
 	
 
@@ -78,6 +80,43 @@ int main ()
 		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
 		MLV_actualise_window();
 	}
+	
+	while(monde.rouge != NULL && monde.bleu!=NULL)
+	{
+		chaine=monde.rouge;
+		while (chaine != NULL)
+		{
+			MLV_draw_adapted_text_box(400,760,"cliquez sur une case ADJACENTE pour déplacer le pion selectionné (Tir AMI non toléré)" ,taille_interlinge,MLV_COLOR_RED, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+			MLV_draw_rectangle(fpix(chaine->posY), fpix(chaine->posX), 60, 60, MLV_COLOR_GREEN);
+			MLV_actualise_window();
+			do
+			{
+				coordonnee(&x, &y);
+			} while (deplacerUnite(chaine, &monde, x, y) != 0);
+			afficheIcone(monde);
+			chaine=chaine->suiv;
+		}
+		if (monde.rouge == NULL)
+		{
+			monde.tour++;
+			break;
+		}
+		
+		chaine=monde.bleu;
+		while (chaine != NULL)
+		{
+			MLV_draw_adapted_text_box(400,760,"cliquez sur une case ADJACENTE pour déplacer le pion selectionné (Tir AMI non toléré)" ,taille_interlinge,MLV_COLOR_BLUE, MLV_COLOR_WHITE, MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+			MLV_draw_rectangle(fpix(chaine->posY), fpix(chaine->posX), 60, 60, MLV_COLOR_GREEN);
+			MLV_actualise_window();
+			do
+			{
+				coordonnee(&x, &y);
+			} while (deplacerUnite(chaine, &monde, x, y) != 0);
+			afficheIcone(monde);
+			chaine=chaine->suiv;
+		}
+	}
+
 	MLV_wait_seconds(10);
 
 }
