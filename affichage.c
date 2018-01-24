@@ -47,7 +47,7 @@ void AskPosition(Monde *monde, LUnite liste)
 	}
 }
 
-void Grille() 
+/*void Grille() 
 {
    int i,j;
    for (i=0;i<width;i=i+60)
@@ -59,3 +59,4 @@ void Grille()
       }
     }
 }
+*/
