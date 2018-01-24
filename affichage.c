@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mecaniques.h"
+#include "string.h"
 #include<MLV/MLV_all.h>
 
 #define LONG 12
@@ -66,4 +67,18 @@ void coordonnee( int *x, int *y)
 	MLV_wait_mouse(&mouseX, &mouseY);
 		*y=mouseX/60;
 		*x=mouseY/60;
+}
+
+char *texteFormateMLV(LUnite unite)
+{
+	char str[] = "Cliquez pour placer le ";
+	if (unite.type = GUERRIER)
+		strcat(str, "guerrier ");
+	else
+		strcat(str, "serf ");
+	if (unite.type = ROUGE)
+		strcat(str, "rouge !");
+	else
+		strcat(str, "bleu !");
+	return str;
 }

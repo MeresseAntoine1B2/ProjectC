@@ -5,5 +5,6 @@
 void printWorld(Unite ***plateau);
 void AskPosition(Monde *monde, LUnite liste);
 void grille(int width, int height);
+char *texteFormateMLV(LUnite unite);
 #endif
 	
