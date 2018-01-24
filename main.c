@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "mecaniques.h"
 #include "affichage.h"
+#include<MLV/MLV_all.h>
 
 int main ()
 {
@@ -14,9 +15,7 @@ int main ()
 	monde.rouge = creerUnite(SERF, ROUGE, monde.rouge);
 	monde.bleu = creerUnite(GUERRIER, BLEU, monde.bleu);
 	monde.bleu = creerUnite(SERF, BLEU, monde.bleu);
-	AskPosition(&monde, monde.rouge);
-	AskPosition(&monde, monde.bleu);
-	printWorld(monde.plateau);
+	
 
 	//Debut du jeu
 	LUnite tourJoueur;

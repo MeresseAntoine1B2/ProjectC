@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mecaniques.h"
+#include<MLV/MLV_all.h>
 
 #define LONG 12
 #define LARG 18
@@ -9,7 +10,6 @@
 #define SERF 's'
 #define GUERRIER 'g'
 
-/* J'ai modifié la fonction printWorld pour la réadapter à ce qui est demandé au projet */
 
 void printWorld(Unite *plateau[LONG][LARG])
 {
@@ -45,4 +45,17 @@ void AskPosition(Monde *monde, LUnite liste)
 		placerAuMonde(tmp, monde, x, y);
 		tmp = tmp->suiv;
 	}
+}
+
+void Grille() 
+{
+   int i,j;
+   for (i=0;i<width;i=i+60)
+    {
+    for(j=0;j<height;j=j+60)
+      {
+      MLV_draw_rectangle(i,j,60,60,MLV_COLOR_YELLOW1);
+     
+      }
+    }
 }
