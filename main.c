@@ -57,7 +57,6 @@ int main ()
 		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
 		afficheIcone(monde);
-		MLV_actualise_window();
 		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
 		MLV_actualise_window();
 	}
@@ -75,6 +74,7 @@ int main ()
 		} while (monde.plateau[x][y] != NULL);
 		placerAuMonde(chaine, &monde, x, y);
 		chaine = chaine->suiv;
+		afficheIcone(monde);
 		MLV_draw_filled_rectangle(400,760,230,70,MLV_COLOR_BLACK);
 		MLV_actualise_window();
 	}

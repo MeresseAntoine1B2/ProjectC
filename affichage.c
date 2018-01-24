@@ -102,13 +102,12 @@ void afficheIcone(Monde monde)
 				{
 					if (monde.plateau[i][j]->type == GUERRIER)
 					{
-						printf("----------wesh GB ?------------\n");
-						MLV_draw_image(imageGB,fpix(i),fpix(j));
+						MLV_draw_image(imageGB,fpix(j),fpix(i));
 						MLV_actualise_window();
 					}
 					else if (monde.plateau[i][j]->type == SERF)
 					{
-						MLV_draw_image(imageSB,i,j);
+						MLV_draw_image(imageSB,fpix(j),fpix(i));
 						MLV_actualise_window();
 					}
 				}
@@ -116,12 +115,12 @@ void afficheIcone(Monde monde)
 				{
 					if (monde.plateau[i][j]->type == GUERRIER)
 					{
-						MLV_draw_image(imageGR,i,j);
+						MLV_draw_image(imageGR,fpix(j),fpix(i));
 						MLV_actualise_window();
 					}
 					else if (monde.plateau[i][j]->type == SERF)
 					{
-						MLV_draw_image(imageSR,i,j);
+						MLV_draw_image(imageSR,fpix(j),fpix(i));
 						MLV_actualise_window();
 					}
 				}

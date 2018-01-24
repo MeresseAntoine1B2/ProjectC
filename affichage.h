@@ -8,5 +8,6 @@ void grille(int width, int height);
 void coordonnee( int *x, int *y);
 int f(int x);
 int fpix(int x);
+void afficheIcone(Monde monde);
 #endif
 	
